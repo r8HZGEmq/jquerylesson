@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../utils/jquery-2.0.2.js"></script>
+    <script>
+       function f1() {
+           var txt1="<p>text1</p>";
+           var txt2=$("<p></p>").text("text2");
+           var txt3=document.createElement("p");
+           txt3.innerHTML = "aaa";
+           $("body").append(txt1,txt2,txt3);
+       }
+
+       function f2(){
+
+           var txt1="<p>Text.</p>";              // 以 HTML 创建新元素
+           var txt2=$("<p></p>").text("Text.");  // 以 jQuery 创建新元素
+           var txt3=document.createElement("p");
+           txt3.innerHTML="Text.";               // 通过 DOM 来创建文本
+           $("body").append(txt1,txt2,txt3);        // 追加新元素
+       }
+       function f3(){
+           $("#div1").remove();// 删除自己和子元素
+           $("#div1").remove(".italic");// 删除指定class的子元素
+           $("#div1").empty();// 删除子元素
+       }
+
+       function f4(){
+           $("h1,h2,p").addClass("blue");
+           $("h1,h2,p").removeClass("blue");
+           $("h1,h2,p").toggleClass("blue");
+           $("p").css({"background-color":"yellow","font-size":"200%"});
+           $("#div1").width();
+           $("#div1").height();
+           $("#div1").innerWidth();
+           $("#div1").outerWidth();
+           $(document).height();
+           $("#div1").width(500).height(500);
+
+           $("span").parent();
+           $("span").parents("ul");
+
+           $("div").children().css({"color":"red","border":"2px solid red"});
+
+           $("div").children("p.l").css({"color":"red","border":"2px solid red"});
+           $("div").find("span");// 返回div标签下的所有span后代
+           $("div").find("*");//返回div标签下的所有后代
+
+           $("h2").siblings();// 同胞元素，不包括自己
+           $("h2").siblings("p");// 指定tag的同胞元素，当然也不包括自己
+           $("h2").next();//他的下一个同胞元素
+           $("h2").nextAll();//他后面的所有同胞元素
+           $("h2").nextUntil("h6");//返回2个元素之间的同胞元素
+           //prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，只不过方向相反而已
+
+           $("div p").first().css("background-color","yellow");//只返回被选元素的首个元素
+           $("div p").last();//不多说了
+
+
+       }
+
+    </script>
+    <style>
+        .blue{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<h1>h1</h1>
+<h2>h2</h2>
+<p class="l">/</p>
+<p class="m"></p>
+<button onclick="f3()"></button>
+<div id="div1" style="background-color:red; width: 100px; height: 100px;"></div>
+</body>
+</html>

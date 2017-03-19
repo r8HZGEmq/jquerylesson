@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="../utils/jquery-2.0.2.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function () {
+           $("button.firstBtn").click(function () {
+               $("#p1").fadeToggle("slow",function () {
+                   //alert("callback")
+               } );
+           })
+       })
+
+        /*$(document).ready(function () {
+            $("button").click(function(){
+                $("#p2").slideToggle(1000);
+            })
+        })*/
+    </script>
+    <!--
+    $("p").fadeIn("slow");
+    ---------------------------------
+    $("p#demo")所有p标签且id==demo的
+    $("[href='#']")
+    $("p").css("background-color","red");
+
+    $("p").hide('fast');
+    -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#animateBtn").click(function () {
+                $("#div1").animate({
+                    left:'300px',
+                    opacity:'0.5',
+                    height:'150px',
+                    width:'150px'}, 2000)
+                $('#div1').animate({
+                    fontSize:'2em'
+                })
+            })
+        })
+    </script>
+    <style type="text/css">
+        #flip,#panel
+        {
+            background-color: #e5eecc;
+            text-align: center;
+            border:solid 1px #c3c3c3;
+            width:auto;
+            height:auto;
+            padding:5px;
+        }
+        #panel
+        {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            $('#stopBtn').click(function () {
+                $('#slideDiv').stop();
+            })
+        })
+
+        $(document).ready(function () {
+            $('#plantDiv').click(function () {
+                $('#slideDiv').slideDown(5000);
+            })
+        })
+    </script>-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideDown(5000);
+            });
+            $("#stop").click(function(){
+                $("#panel").stop();
+            });
+        });
+        $(document).ready(function(){
+            $("#chaining").click(function(){
+                $("#div1").css("color","red").slideUp(5000).slideDown(5000);
+            });
+        });
+
+    </script>
+
+
+    <!--
+    $("p").append("Some appended text.");
+
+    $("p").prepend("Some prepended text.");
+
+    -->
+</head>
+<body>
+    <button class="firstBtn" type="button">隐藏</button>
+    <p id="p1">这是一个段落。</p>
+    <p id="p2">这是另一个段落。</p>
+
+    <button type="button" id="animateBtn">动画按钮</button>
+    <div id="div1" style=" background: #98bf21; width: 100px;height: 100px;position: absolute;display: none;">
+        我是div的文本
+    </div>
+
+    <button id="stop">停止滑动</button>
+    <button id="chaining" type="button">chaining</button>
+    <div id="flip">点击这里，向下滑动面板</div>
+    <div id="panel">Hello world!</div>
+    <p id="xx" value="i just a testpannel">Hello world!</p>
+    <script>
+        document.write("qqq:"+$('#xx').val())
+    </script>
+</body>
+</html>

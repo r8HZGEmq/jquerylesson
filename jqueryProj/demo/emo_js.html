@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="../utils/jquery-2.0.2.js"></script>
+</head>
+
+<body>
+<h1 id="h01">lfajdlkfjadkl</h1>
+<script>
+    function myFunction() {
+        $("#h01").attr("style","color:red").html("i'm a jquery");
+    }
+    $(document).ready(myFunction());
+</script>
+
+<form>
+    <input type="button" value="Start count!" onClick="timedCount()">
+    <input type="text" id="txt">
+    <input type="button" value="Stop count!" onClick="stopCount()">
+</form>
+
+
+<script type="text/javascript">
+    function getCookieFunc(c_name) {
+        var myCookieName = document.cookie;
+        if(myCookieName.length>0){
+            var indexVar = myCookieName.indexOf(c_name+"=");
+            if(indexVar != -1){
+            }
+        }
+    }
+    var c=0
+    var t
+    function timedCount()
+    {
+        document.getElementById('txt').value=c
+        c=c+1
+        t=setTimeout("timedCount()",1000)// 调用self
+    }
+    function stopCount()
+    {
+        c = 0;
+        clearTimeout(t)
+    }
+</script>
+
+<script type="text/javascript">
+    document.write("hostname：" + location.hostname + "<br/>");
+    document.write("pathname：" + location.pathname+ "<br/>");
+    document.write("port：" + location.port+ "<br/>");
+    document.write("protocol：" + location.protocol+ "<br/>");
+    document.write("href：" + location.href+ "<br/>");
+    <!-- 加载新的文档 -->
+    //window.location.assign("https://www.baidu.com")
+    //window.history.back(); 方法加载历史列表中的前一个 URL。
+    //window.history.forward() - 与在浏览器中点击按钮向前相同
+
+    var language = window.navigator.systemLanguage;
+    //alert(language);
+    //confirm(language);
+    //prompt(language,"默认值");
+    //var t=setTimeout("alert('5 seconds!')",5000)
+
+    document.write("可用高度：" + screen.availHeight);
+    document.write("<br/>");
+
+    var height = window.innerHeight;
+    var width  = window.innerWidth;
+    document.write("内部窗口的宽高" + width+"=="+height);
+
+    var str="Is this all there is?";
+    var patt1=/[a-h]/g;
+    document.write(str.match(patt1));
+    document.write("<br/>");
+
+    var patt1 = new RegExp("");
+    var boop1 = patt1.test("Thaaa bast things in lifa ara fr");
+    document.write(boop1);
+    document.write("<br/>");
+
+    var roundVar = Math.round(4.5);
+    document.write(roundVar);
+    document.write("<br />");
+
+    var rad = Math.random();
+    document.write(rad);
+    document.write("<br/>")
+    var randomVar = Math.floor(rad*11);
+    document.write(randomVar);
+    document.write("<br />");
+
+    var myBoolean=new Boolean(1);
+    document.write(myBoolean);
+    document.write("<br />");
+
+    var myBoolean=new Boolean(true);
+    document.write(myBoolean);
+    document.write("<br />");
+
+    var myBoolean=new Boolean("true");
+    document.write(myBoolean);
+    document.write("<br />");
+
+    var myBoolean=new Boolean("false");
+    document.write(myBoolean);
+    document.write("<br />");
+
+    var myBoolean=new Boolean("Bill Gates");
+    document.write(myBoolean);
+    document.write("<br />");
+</script>
+</body>
+
+</html>
