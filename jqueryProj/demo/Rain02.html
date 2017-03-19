@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../utils/jquery-2.0.2.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("Text: " + $("#test").text());
+            });
+            $("#btn2").click(function(){
+                alert("HTML: " + $("#test").html());
+            });
+            $("#btn3").click(function(){
+                alert("val: " + $("#animal").val());
+            });
+            $("#btn4").click(function(){
+                $("#w3s").attr({"href":"http://www.w3school.com.cn/jquery","title":"W3School jQuery Tutorial"});
+                alert("attr-href: " + $("#w3s").attr('href')+ $("#w3s").attr('title'));
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        /*
+         append() - 在被选元素的结尾插入内容
+         prepend() - 在被选元素的开头插入内容
+         after() - 在被选元素之后插入内容   eg: $("img").after("<i>After</i>");
+         before() - 在被选元素之前插入内容，eg: $("img").before("<b>Before</b>");
+         */
+        function appendText() {
+            var p1 = $("<p></p>").text("通过jquery创建");
+            var p2 = document.createElement("p");
+            p2.innerHTML = "通过js创建"
+            var p3 = "<p>通过html创建</p>";
+            $("#append_p").append(p1, p2, p3);
+        }
+    </script>
+
+    <script type="text/javascript">
+        /*
+         remove() - 删除被选元素（及其子元素）
+         empty() - 从被选元素中删除子元素
+         也可以删除指定的selector，如：$("p").remove(".italic");
+         */
+        function removeText() {
+            $("#removediv").empty();
+        }
+    </script>
+
+    <style>
+        .important
+        {
+            font-weight:bold;
+            font-size:xx-large;
+        }
+
+        .blue
+        {
+            color:blue;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function addClassFunction() {
+            $("button").click(function(){
+                $("h1,h2,p").addClass("blue");
+                $("div").addClass("important");
+            });
+
+            $("button").click(function(){
+                $("h1,h2,p").removeClass("blue");
+            });
+
+            $("button").click(function(){
+                $("h1,h2,p").toggleClass("blue");
+            });
+
+            $("button").click(function(){
+                $("p").css("background-color");// 返回DOM中第一个p标签的背景色属性值
+                $("p").css("background-color","yellow");//设置DOM中所有p标签的背景色
+                $("p").css({"background-color":"yellow","font-size":"200%"});//设置DOM中所有p标签的背景色，字体大小
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        function getWidgetSize() {
+            //width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+            //innerWidth() 方法返回元素的宽度（包括内边距）。
+            //outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+            alert($("#size_div").innerWidth());
+        }
+    </script>
+
+</head>
+
+<body>
+<p id="test" value="米老鼠">这是段落中的<b>粗体</b>小动物：<input type="text" id="animal" value="米老鼠"></p>
+<p><a href="http://www.w3school.com.cn" id="w3s">W3School.com.cn</a></p>
+<button id="btn1">显示文本</button>
+<button id="btn2">显示 HTML</button>
+<button id="btn3">显示 val</button>
+<button id="btn4">显示 attr</button>
+<button id="btn5" onclick="appendText()">点击添加文本</button>
+<button id="btn6" onclick="removeText()">删除元素内容</button>
+<button id="btn7" onclick="getWidgetSize()">获取元素尺寸</button>
+<p id="append_p">
+</p>
+
+
+<div id="removediv" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+    This is some text in the div.
+    <p>This is a paragraph in the div.</p>
+    <p>This is another paragraph in the div.</p>
+</div>
+
+<br>
+
+<div id="size_div" style="background-color: #98bf21;width: 100px;height: 50px;padding: 10px">
+    测量尺寸
+</div>
+
+</body>
+</html>

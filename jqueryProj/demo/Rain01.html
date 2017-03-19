@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../utils/jquery-2.0.2.js"></script>
+    <script type="text/javascript">
+        var myJS = jQuery.noConflict();
+        myJS(document).ready(function () {
+            myJS("#button_toggle").click(function () {
+                myJS("p").toggle();
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        /*
+        $(document).ready(function)	将函数绑定到文档的就绪事件（当文档完成加载时）
+        $(selector).click(function)	触发或将函数绑定到被选元素的点击事件
+        $(selector).dblclick(function)	触发或将函数绑定到被选元素的双击事件
+        $(selector).focus(function)	触发或将函数绑定到被选元素的获得焦点事件
+        $(selector).mouseover(function)	触发或将函数绑定到被选元素的鼠标悬停事件
+        */
+
+        /* 显示和隐藏--（其中，speed可以取值"slow"、"fast"、毫秒数如1000）
+        $(selector).hide(speed,callback);
+        $(selector).show(speed,callback);
+        $(selector).toggle(speed,callback);
+
+         淡入淡出
+         $(selector).fadeIn(speed,callback);
+         $(selector).fadeOut(speed,callback);
+         $(selector).fadeToggle(speed,callback);
+         $(selector).fadeTo(speed,opacity,callback);    如$("#div1").fadeTo("slow",0.15);越接近0越透明
+
+         滑动效果
+         $(selector).slideDown(speed,callback);     如120px none。$(".panel").slideDown("slow");
+         $(selector).slideUp(speed,callback);
+         $(selector).slideToggle(speed,callback);   函数会检测当前处于何种status
+
+         动画效果 语法(有动画队列。同时执行需要卸载同一个{params}中)
+         $(selector).animate({params},speed,callback);
+         动画效果 实例（向右移动直到left==250px）
+         $("button").click(function(){
+         $("div").animate({left:'250px',width:'+=100px',height:'toggle'});
+         });
+
+         stop() 方法用于停止动画或效果，在它们完成之前。包括滑动、淡入淡出和自定义动画
+         $(selector).stop(stopAll,goToEnd);
+         */
+
+    </script>
+</head>
+<body>
+<a href="http://xx01.jpg">world</a>
+<a href="http://xx02.png">jquery</a>
+<a href="http://xx03.jpg">hello</a>
+<button id="button_toggle" type="button" style="padding: 15px; background-color: #000; color: #ffffff;;">button</button>
+<p>
+    button_togglebutton_togglebutton_togglebutton_toggle
+</p>
+</body>
+</html>

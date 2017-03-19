@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ancestors *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script type="text/javascript" src="../utils/jquery-2.0.2.js"></script>
+    <script>
+        $(document).ready(function(){
+            // parent()和parents() 直接父元素和向上全部父元素
+            $("span").parents().css({"color":"red","border":"2px solid red"});
+            $("span").parents("ul").css({"color":"green","border":"2px solid green"});
+            $("span").parentsUntil("div").css({"color":"yellow","border":"2px solid green"});
+            //children() 方法返回被选元素的所有直接子元素。
+            //find() 方法返回被选元素的后代元素，一路向下直到最后一个后代 $("div").find("span"); $("div").find("*");
+
+            //siblings() 方法返回被选元素的所有同胞元素。不包括自己
+            //next() 方法返回被选元素的下一个同胞元素。
+            //nextAll() 方法返回被选元素的所有跟随的同胞元素。
+            //nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+            /*prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，
+            只不过方向相反而已：它们返回的是前面的同胞元素（在 DOM 树中沿着同胞元素向后遍历，而不是向前）。*/
+
+            //first() 方法返回被选元素的首个元素。比如有多个标签都符合"p.myclass"，只返回第一个
+            //last() 方法返回被选元素的最后一个元素。
+            //$("p").eq(1); 比如有10个p标签，只返回第二个。index从0开始，和java相同
+            //$("p").filter(".intro");比如有10个p标签，但是class为intro的只有3个，那么只返回这3个标签
+            //$("p").not(".intro");与filter相反
+        });
+    </script>
+</head>
+<body>
+<div class="ancestors">
+    <div style="width:500px;">div (曾祖父)
+        <ul>ul (祖父)
+            <li>li (直接父)
+                <span>span</span>
+            </li>
+        </ul>
+    </div>
+
+    <div style="width:500px;">div (祖父)
+        <p>p (直接父)
+            <span>span</span>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

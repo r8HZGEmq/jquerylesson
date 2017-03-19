@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../utils/jquery-2.0.2.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#getrequestid").click(function(){
+                $.get("http://www.w3school.com.cn/example/jquery/demo_test.asp",function(data,status){
+                    alert("数据：" + data + "\n状态：" + status);
+                });
+            });
+            $("#postrequestid").click(function(){
+                $.post("http://www.w3school.com.cn/example/jquery/demo_test_post.asp",
+                    {
+                        name:"Donald Duck",
+                        city:"Duckburg"
+                    },
+                    function(data,status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="getrequestid" type="button">get请求</button>
+<button id="postrequestid" type="button">post请求</button>
+
+</body>
+</html>
